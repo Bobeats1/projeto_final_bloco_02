@@ -1,8 +1,8 @@
 import { IsNotEmpty } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn,} from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-@Entity({name: "tb_categorias"})
-export class Categoria {
+@Entity({name: "tb_produtos"})
+export class Produto {
 
     @PrimaryGeneratedColumn()
     id: number 
@@ -15,5 +15,7 @@ export class Categoria {
     @Column({length: 1000, nullable: false})
     descricao: string
 
-
+    @IsNotEmpty()
+    @Column({nullable: false})
+    valor: number    
 }
